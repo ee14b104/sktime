@@ -13,13 +13,32 @@ paths:
       requestBody:
         required: true
         content: 
-            ts_forecast_data/json
+            ts_forecast_data
                 schema:
                     properties: 
                        time_series:
                          type: array
                          items:
                            type: number 
+      responses:
+        '200':
+          description: response with time series forecast
+          content:
+            application/json:
+              schema:
+                properties: 
+                    forecast:
+                      type: array 
+                      items:
+                        type: number
+        '500':
+          $ref: "#/components/schemas/Error"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
   /user:
     get:
