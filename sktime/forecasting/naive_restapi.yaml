@@ -13,8 +13,8 @@ paths:
       requestBody:
         required: true
         content: 
-            ts_forecast_data
-                schema:
+            application/json:
+              schema:
                     properties: 
                        time_series:
                          type: array
@@ -98,3 +98,4 @@ components:
           format: int32
         message:
           type: string
+          
